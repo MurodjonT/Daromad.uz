@@ -1,15 +1,8 @@
-//
-//  Untitled.swift
-//  Daromad.uz
-//
-//  Created by Murodjon Turobov on 15/05/25.
-//
-
 import SwiftUI
 
 struct AddTransactionView: View {
     @ObservedObject var viewModel: TransactionViewModel
-    
+
     @Environment(\.dismiss) var dismiss
 
     @State private var amount: String = ""
@@ -19,46 +12,64 @@ struct AddTransactionView: View {
     @State private var type: TransactionType = .expense
 
     var body: some View {
-        Form {
-            Section(header: Text("Summasi")) {
-                TextField("10000", text: $amount)
-                    .keyboardType(.decimalPad)
-            }
+        ZStack {
 
-            Section(header: Text("Kategoriya")) {
-                TextField("Masalan: Oziq-ovqat", text: $category)
-            }
 
-            Section(header: Text("Izoh")) {
-                TextField("Izoh yozing", text: $description)
-            }
-
-            Section(header: Text("Sana")) {
-                DatePicker("Sana", selection: $date, displayedComponents: .date)
-            }
-
-            Section(header: Text("Turi")) {
-                Picker("Turi", selection: $type) {
-                    Text("Daromad").tag(TransactionType.income)
-                    Text("Xarajat").tag(TransactionType.expense)
+            Form {
+                Section(header: Text("Summasi")) {
+                    TextField("10000", text: $amount)
+                        .keyboardType(.decimalPad)
+//                        .clipsShape(RoundedRectangle(cornerRadius: 12))
                 }
-                .pickerStyle(SegmentedPickerStyle())
-            }
+                .listRowBackground(Color(.systemGray6))
 
-            Button("Saqlash") {
-                if let amountValue = Double(amount) {
-                    viewModel.addTransaction(
-                        amount: amountValue,
-                        category: category,
-                        description: description,
-                        date: date,
-                        type: type
-                    )
-                    dismiss()
+                Section(header: Text("Kategoriya")) {
+                    TextField("Masalan: Oziq-ovqat", text: $category)
                 }
+                .listRowBackground(Color(.systemGray6))
+
+                Section(header: Text("Izoh")) {
+                    TextField("Izoh yozing", text: $description)
+                }
+                .listRowBackground(Color(.systemGray6))
+
+                Section(header: Text("Sana")) {
+                    DatePicker("Sana", selection: $date, displayedComponents: .date)
+                }
+                .listRowBackground(Color(.systemGray6))
+
+                Section(header: Text("Turi")) {
+                    Picker("Turi", selection: $type) {
+                        Text("Daromad").tag(TransactionType.income)
+                        Text("Xarajat").tag(TransactionType.expense)
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                }
+                .listRowBackground(Color(.systemGray6))
+
+                Button("Saqlash") {
+                    if let amountValue = Double(amount) {
+                        viewModel.addTransaction(
+                            amount: amountValue,
+                            category: category,
+                            description: description,
+                            date: date,
+                            type: type
+                        )
+                        dismiss()
+                    }
+                }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .listRowBackground(Color(.systemBlue)) // tugma ham xuddi shunday fon bilan
             }
-            .frame(maxWidth: .infinity, alignment: .center)
+//            .clipsShape(RoundedRectangle(cornerRadius: 12)) // Formning burchaklarini yumshatamiz
+            .scrollContentBackground(.hidden) // Form default backgroundni olib tashlaymiz
         }
         .navigationTitle("Tranzaksiya qo‘shish")
     }
+}
+
+#Preview {
+    AddTransactionView(viewModel: TransactionViewModel())
 }

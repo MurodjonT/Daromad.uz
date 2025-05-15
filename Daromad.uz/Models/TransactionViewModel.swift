@@ -52,4 +52,13 @@ class TransactionViewModel: ObservableObject {
         }
         return result
     }
+    
+    func incomeByCategory() -> [String: Double] {
+        var result: [String: Double] = [:]
+        for transaction in transactions where transaction.type == .income {
+            result[transaction.category, default: 0] += transaction.amount
+        }
+        return result
+    }
+
 }
