@@ -5,11 +5,26 @@
 //  Created by Murodjon Turobov on 15/05/25.
 //
 
-import Foundation
+import SwiftUI
 
 enum TransactionType: String, Codable, CaseIterable {
-    case income = "Daromad"
-    case expense = "Xarajat"
+    
+    case income
+    case expense
+    
+    var title: LocalizedStringKey {
+        switch self {
+        case .income: return "Daromad"
+        case .expense: return "Xarajat"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .income: return .green
+        case .expense: return .red
+        }
+    }
 }
 
 struct Transaction: Identifiable, Codable {

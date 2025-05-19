@@ -12,8 +12,14 @@ class TransactionViewModel: ObservableObject {
     init() {
         transactions = [
             Transaction(amount: 50000, category: "Ish haqi", description: "Oy oxiri", date: Date(), type: .income),
-            Transaction(amount: 20000, category: "Oziq-ovqat", description: "Market", date: Date(), type: .expense)
+            Transaction(amount: 20000.43, category: "Oziq-ovqat", description: "Market", date: Date(), type: .expense),
+            Transaction(amount: 50000, category: "Ish haqi", description: "Oy oxiri", date: Date(), type: .income),
+            Transaction(amount: 20000.43, category: "Oziq-ovqat", description: "Market", date: Date(), type: .expense)
         ]
+    }
+    
+    func didUserCreatedTransaction(_ transaction: Transaction) {
+        transactions.append(transaction)
     }
     
     func addTransaction(amount: Double, category: String, description: String, date: Date, type: TransactionType) {
