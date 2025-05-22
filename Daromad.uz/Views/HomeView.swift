@@ -72,6 +72,7 @@ struct HomeView: View {
 
                         Button(action: {
                             path.append("edit")
+                            
 
                         }) {
                             Label("Edit", systemImage: "pencil")
