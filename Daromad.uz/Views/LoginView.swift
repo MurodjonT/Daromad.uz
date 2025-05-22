@@ -12,6 +12,8 @@ struct LoginView: View {
     @State private var firstName = ""
     @State private var lastName = ""
     @State var phoneNumber = "93-555-33-22"
+    @State var phoneNusmber = "93-555-33-22"
+    @State var phoneNusmbedr = "93-555-33-22"
     
     var body: some View {
         List {
