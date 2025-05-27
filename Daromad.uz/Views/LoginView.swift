@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var firstName = ""
-    @State private var lastName = ""
+    @State private var firstName = "Murodjon"
+    @State private var lastName = "Turobov"
     @State var phoneNumber = "93-555-33-22"
 
     
@@ -33,6 +33,7 @@ struct LoginView: View {
                             .frame(width: 32, height: 32)
                             .foregroundStyle(Color.primary, Color.accentColor)
                     }
+                    .buttonStyle(.borderless)
                 }
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(EmptyView())
@@ -43,7 +44,9 @@ struct LoginView: View {
             Section {
                 TextField("First Name", text: $firstName)
                 
+                
             } header: { Text("First Name") }
+                
             
             Section {
                 TextField("Last Name", text: $lastName)
@@ -143,7 +146,7 @@ struct DeleteButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
      func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(size: 18, weight: .semibold  ))
+            .font(.system(size: 18))
             .padding()
             .foregroundStyle(Color.red)
             .frame(maxWidth: .infinity)

@@ -114,27 +114,29 @@ struct HomeView: View {
             NavigationLink {
                 AddTransactionView(onComplete: viewModel.didUserCreatedTransaction)
             } label: {
-                VStack {
+                HStack {
                     Image(systemName: "minus.slash.plus")
                     Text("Harajat qo'shish")
                 }
+                .font(.headline)
                 .frame(maxWidth: .infinity)
-                .padding(10)
+                .padding(15)
                 .background(Color.accentColor)
                 .foregroundColor(.white)
                 .clipShape(.rect(cornerRadius: 18))
             }
-            NavigationLink(destination: MonitoringView(viewModel: viewModel)) {
-                VStack {
-                    Image(systemName: "chart.pie.fill")
-                    Text("Monitoring")
-                }
-                .frame(maxWidth: .infinity)
-                .padding(10)
-                .background(Color.accentColor)
-                .foregroundColor(.white)
-                .clipShape(.rect(cornerRadius: 18))
-            }
+//            NavigationLink(destination: MonitoringView(viewModel: viewModel)) {
+//                HStack {
+//                    Image(systemName: "chart.pie.fill")
+//                    Text("Monitoring")
+//                        .font(.headline)
+//                }
+//                .frame(maxWidth: .infinity)
+//                .padding(15)
+//                .background(Color.accentColor)
+//                .foregroundColor(.white)
+//                .clipShape(.rect(cornerRadius: 18))
+//            }
         }
         .padding()
     }
