@@ -74,20 +74,70 @@ struct SettingsView: View {
                     Text("Additional Settings")
                         .font(.system(size: 18, weight: .semibold))
                         .padding(.top, 24)
-                    HStack {
-                        Image("globe_light")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 24, height: 24)
-                        Text("Log in as an Expert")
-                        Spacer()
+                    VStack {
+                        HStack {
+                            
+                            Image("globe_light")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                            Text("Language")
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                          
+                                
+                        }
+                        .padding(14)
+                        Divider().padding(.horizontal)
+                        HStack {
+                            
+                            Image("group_share_light")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                            Text("Share")
+                            Spacer()
+                       
+                        }
+                        .padding(14)
+                        Divider().padding(.horizontal)
+                        HStack {
+                            
+                            Image("Chield_check_light")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                            Text("Share")
+                            Spacer()
+                       
+                        }
+                        .padding(14)
+                        Divider().padding(.horizontal)
+                        HStack {
+                            
+                            Image("External")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 24, height: 24)
+                            Text("Share")
+                            Spacer()
+                       
+                        }
+                        .padding(14)
+                 
+                        
+                        
+                            
+                        
+
+                        
+                        
                     }
-                    
-                    .padding()
-                    .background(Color.white)
-                    .clipShape(.rect(cornerRadius: 12))
+
+                                            .background(Color.white)
+                                            .clipShape(.rect(cornerRadius: 12))
                 }
-                
                 
              
                     
