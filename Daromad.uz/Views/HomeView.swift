@@ -125,6 +125,7 @@ struct HomeView: View {
                 .foregroundColor(.white)
                 .clipShape(.rect(cornerRadius: 18))
             }
+            
 //            NavigationLink(destination: MonitoringView(viewModel: viewModel)) {
 //                HStack {
 //                    Image(systemName: "chart.pie.fill")

@@ -100,6 +100,7 @@ struct LoginView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .buttonStyle(.large)
+                
             }
             
             .listRowInsets(EdgeInsets())

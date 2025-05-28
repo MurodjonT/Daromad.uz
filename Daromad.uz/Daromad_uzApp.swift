@@ -11,7 +11,7 @@ import SwiftUI
 struct Daromad_uzApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeTabView()
         }
     }
 }
