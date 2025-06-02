@@ -12,6 +12,7 @@ enum TransactionType: String, Codable, CaseIterable {
     case income
     case expense
     
+    
     var title: LocalizedStringKey {
         switch self {
         case .income: return "Daromad"
@@ -45,4 +46,21 @@ extension Transaction {
         date: Date(),
         type: .expense
     )
+}
+
+ 
+enum Language: String, CaseIterable, Identifiable {
+    case uzbek = "Uzbek"
+    case english = "English"
+    case russian = "Russian"
+    
+    var id: String { self.rawValue }
+    
+//    var title: LocalizedStringKey {
+//        switch self {
+//        case .uzbek: return "Uzbek"
+//        case .english: return "English"
+//        case .russian: return "Russian"
+//        }
+//    }
 }

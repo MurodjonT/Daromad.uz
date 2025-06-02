@@ -12,6 +12,8 @@ struct SettingsView: View {
     @State private var nameClient: String = "Murodjon Turobov"
     @State private var roleClient: String = "Client"
     @State private var isNotificationsEnabled: Bool = true
+    @State private var selectedLanguage: Language = .uzbek
+    @State private var showLanguagePicker: Bool = false
     
     var body: some View {
             ScrollView {
@@ -74,58 +76,82 @@ struct SettingsView: View {
                     Text("Additional Settings")
                         .font(.system(size: 18, weight: .semibold))
                         .padding(.top, 24)
+                    
                     VStack {
-                        HStack {
-                            
-                            Image("globe_light")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 24, height: 24)
-                            Text("Language")
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                          
+                       
+                            HStack {
+                                Image("globe_light")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
                                 
+                                Text("Language")
+                                Spacer()
+                                
+                                Picker(selection: $selectedLanguage, label: Text(selectedLanguage.rawValue)) {
+                                    ForEach(Language.allCases) { lang in
+                                        Text(lang.rawValue).tag(lang)
+                                    }
+                                }
+                                .labelsHidden()
+                                .pickerStyle(.menu) // yoki .automatic
+                            }
+                            .padding()
+                            .background(Color.white)
+                            .clipShape(.rect(cornerRadius: 12))
+                            
+                      
+                        
+                        Divider().padding(.horizontal)
+                        Button(action: {
+                            print("Share tapped")
+                        }) {
+                            HStack {
+                                
+                                Image("group_share_light")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                Text("Share")
+                                Spacer()
+                                
+                            }
                         }
                         .padding(14)
                         Divider().padding(.horizontal)
-                        HStack {
-                            
-                            Image("group_share_light")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 24, height: 24)
-                            Text("Share")
-                            Spacer()
-                       
+                        Button(action: {
+                            print("Privacy tapped")
+                        }) {
+                            HStack {
+                                
+                                Image("Chield_check_light")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                Text("Privacy Policy")
+                                    
+                                Spacer()
+                                
+                            }
                         }
                         .padding(14)
                         Divider().padding(.horizontal)
-                        HStack {
-                            
-                            Image("Chield_check_light")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 24, height: 24)
-                            Text("Share")
-                            Spacer()
-                       
-                        }
-                        .padding(14)
-                        Divider().padding(.horizontal)
-                        HStack {
-                            
-                            Image("External")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 24, height: 24)
-                            Text("Share")
-                            Spacer()
-                       
+                        Button(action: {
+                            print("User Agreement tapped")
+                        }) {
+                            HStack {
+                                
+                                Image("External")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 24, height: 24)
+                                Text("User Agreement")
+                                Spacer()
+                            }
                         }
                         .padding(14)
                     }
+                        .foregroundColor(.primary)
                         .background(Color.white)
                         .clipShape(.rect(cornerRadius: 12))
         }
