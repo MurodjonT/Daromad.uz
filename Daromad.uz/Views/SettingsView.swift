@@ -125,27 +125,34 @@ struct SettingsView: View {
                        
                         }
                         .padding(14)
-                 
-                        
-                        
-                            
-                        
-
-                        
-                        
                     }
-
-                                            .background(Color.white)
-                                            .clipShape(.rect(cornerRadius: 12))
-                }
+                        .background(Color.white)
+                        .clipShape(.rect(cornerRadius: 12))
+        }
                 
              
+                HStack {
+                    Image("Sign_out_squre_light")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(.red)
                     
+                    Text("Log Out")
+                        .foregroundStyle(.red)
+                    Spacer()
+                }
+                .padding()
+                .background(Color.white)
+                .clipShape(.rect(cornerRadius: 12))
                 }
                 .font(.system(size: 18))
                 .padding(EdgeInsets(top: 24, leading: 16, bottom: 24, trailing: 16))
                 .background(Color(UIColor.systemGroupedBackground))
+        
+        
             }
+    
            
         }
     

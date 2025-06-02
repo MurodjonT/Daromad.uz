@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9F96B6C92DE70C7A00A711DD /* Script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9F96B6C82DE70C7100A711DD /* Script.sh */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		9F96B6C82DE70C7100A711DD /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
 		9F9C4C652DD5B38400848E7E /* Daromad.uz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daromad.uz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +37,7 @@
 		9F9C4C5C2DD5B38400848E7E = {
 			isa = PBXGroup;
 			children = (
+				9F96B6C82DE70C7100A711DD /* Script.sh */,
 				9F9C4C672DD5B38400848E7E /* Daromad.uz */,
 				9F9C4C662DD5B38400848E7E /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F96B6C92DE70C7A00A711DD /* Script.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
