@@ -4,14 +4,20 @@
 //
 //  Created by Murodjon Turobov on 18/05/25.
 //
+//
+//  ProfileBootcamp.swift
+//  SwiftUI bootcamp
+//
+//  Created by Murodjon Turobov on 05/05/25.
+//
 
 import SwiftUI
 
 struct LoginView: View {
     
-    @State private var firstName = "Murodjon"
-    @State private var lastName = "Turobov"
+ 
     @State var phoneNumber = "93-555-33-22"
+    @State private var user: User? = .mock
 
     
     var body: some View {
@@ -42,25 +48,28 @@ struct LoginView: View {
             }
             
             Section {
-                TextField("First Name", text: $firstName)
-                
-                
+                if let firstName = user?.firstName {
+                    Text(firstName)
+                        
+                }
             } header: { Text("First Name") }
                 
             
             Section {
-                TextField("Last Name", text: $lastName)
-                
+                if let lastName = user?.lastName {
+                    Text(lastName)
+                }
             } header: { Text("Last Name") }
             
             Section {
                 HStack(spacing: 12 ) {
                     Text("+998")
                     Divider()
-                    TextField("Phone Number", text: $phoneNumber)
-                        .keyboardType(.numberPad)
-                        .textContentType(.telephoneNumber)
-                    
+                    if let phoneNumber = user?.phoneNumber {
+                        TextField("Phone Number", text: $phoneNumber)
+                            .keyboardType(.numberPad)
+                            .textContentType(.telephoneNumber)
+                    }
                 }
                 .padding(.horizontal)
                 .listRowInsets(EdgeInsets())
@@ -177,3 +186,8 @@ extension ButtonStyle where Self == LargeButtonStyle {
 extension ButtonStyle where Self == DeleteButtonStyle {
     static var delete: Self { DeleteButtonStyle() }
     }
+
+
+#Preview {
+    LoginView()
+}
